@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 console.log("I am in js file!");
 
 var app = new Vue({
@@ -5,26 +6,28 @@ var app = new Vue({
   data: function () {
     return {
       message: "Hello Vue.js",
-      todos: [
-        {
-          userId: 1,
-          id: 1,
-          title: "delectus aut autem",
-          completed: false,
-        },
-        {
-          userId: 1,
-          id: 2,
-          title: "quis ut nam facilis et officia qui",
-          completed: false,
-        },
-        {
-          userId: 1,
-          id: 3,
-          title: "fugiat veniam minus",
-          completed: false,
-        },
-      ],
+      todos: [],
     };
+  },
+  methods: {
+    loadTodos: function () {
+      console.log("Loading Todos");
+      axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => {
+        console.log(response.data);
+        this.todos = response.data;
+      });
+    },
+  },
+});
+
+new Vue({
+  el: "#app1",
+  data() {
+    return {
+      info: null,
+    };
+  },
+  mounted() {
+    axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => (this.info = response.data));
   },
 });

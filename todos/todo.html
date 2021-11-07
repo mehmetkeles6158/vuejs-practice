@@ -5,20 +5,27 @@
     <meta charset="UTF-8" />
     <title>Todos Vue.js</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <h1>Hello from HTML!</h1>
     <div id="app">
       {{ message }}
       <br />
-      <div v-for="todo in todos">
-        <p>here is the info!</p>
-        <p>title: {{ todo.title }}</p>
-        <p>userId: {{ todo.userId }}</p>
-        <p>id: {{ todo.id }}</p>
-        <p>completed: {{ todo.completed }}</p>
+      <div >
+        <ol>
+          <li v-for="todo in todos">
+            {{todo.title}}
+          </li>
+        </ol>
         <hr>
       </div>
+      <button v-on:click ="loadTodos">make web request</button>
+    </div>
+    <hr>
+    <hr>
+    <div id="app1">
+      {{info}}
     </div>
 
     <script src="todo.js"></script>
