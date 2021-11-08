@@ -18,16 +18,19 @@ var app = new Vue({
       });
     },
   },
+  created: function () {
+    this.loadTodos();
+  },
 });
 
-new Vue({
-  el: "#app1",
-  data() {
-    return {
-      info: null,
-    };
-  },
-  mounted() {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => (this.info = response.data));
-  },
-});
+// new Vue({
+//   el: "#app1",
+//   data() {
+//     return {
+//       info: null,
+//     };
+//   },
+//   mounted() {
+//     axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => (this.info = response.data));
+//   },
+// });

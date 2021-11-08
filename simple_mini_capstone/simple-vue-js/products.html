@@ -1,33 +1,28 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Todos Vue.js</title>
+    <title>Practice Vue.js</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="products.js" defer></script>
   </head>
   <body>
     <h1>Hello from HTML!</h1>
     <div id="app">
       {{ message }}
-      <br />
-      <button v-on:click ="loadTodos">make web request</button>
+      <hr>
+      
+      <button v-on:click ="allProducts">make web request</button>
       <div >
         <ol>
-          <li v-for="todo in todos">
-            {{todo.title}}
+          <li v-for="product in products">
+            {{ product }}
           </li>
         </ol>
-        <hr>
       </div>
     </div>
-    <hr>
-    <hr>
-    <!-- <div id="app1">
-      {{info}}
-    </div> -->
-
-    <script src="todo.js"></script>
+    
+    <script slot="products.js"></script>
   </body>
 </html>
