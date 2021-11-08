@@ -14,10 +14,13 @@
       <hr>
       
       <button v-on:click ="allProducts">make web request</button>
+      <p>Todos:</p>
+    <button v-on:click="createProduct()">Make post request (add new product)</button>
+
       <div >
         <ol>
           <li v-for="product in products">
-            {{ product }}
+            {{ product.name }}
           </li>
         </ol>
       </div>
