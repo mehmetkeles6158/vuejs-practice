@@ -21,16 +21,35 @@ var app = new Vue({
       // make post request
       axios
         .post("http://localhost:3000/products", {
-          name: "IZZE",
-          description: "it is nice drink",
-          price: 2.99,
+          name: "Izze clementine",
+          description: "It is the best drink",
+          price: 1.99,
           image_url:
-            "https://cdn.shopify.com/s/files/1/0021/5436/4983/files/izze-home-about3-picnicTub-933x700_600x.jpg?v=1535478579",
+            "https://d2d8wwwkmhfcva.cloudfront.net/466x466/filters:fill(FFF,true):format(webp)/d2lnr5mha7bycj.cloudfront.net/product-image/file/large_ecc0739a-9620-4de4-9e0c-9ce7a988bf3e.png",
         })
         .then((response) => {
           console.log(response.data);
           this.products.push(response.data);
         });
+    },
+    updateProduct: function () {
+      console.log("updating product...");
+      // make update request
+      axios
+        .patch("http://localhost:3000/products/8", {
+          name: "IZZE-APPLE",
+          price: 3.99,
+        })
+        .then((response) => {
+          console.log(response.data);
+        });
+    },
+    deleteProduct: function () {
+      console.log("Deleting product...");
+      // make delete request
+      axios.delete("http://localhost:3000/products/8").then((response) => {
+        console.log(response);
+      });
     },
   },
 });

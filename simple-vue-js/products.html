@@ -12,15 +12,24 @@
     <div id="app">
       {{ message }}
       <hr>
-      
+      <p>Products:</p>
+      <p>Index;</p>
       <button v-on:click ="allProducts">make web request</button>
-      <p>Todos:</p>
+      <hr>
+      <p>Create;</p>
     <button v-on:click="createProduct()">Make post request (add new product)</button>
+    <hr>
+    <p>Update;</p>
+    <button v-on:click="updateProduct()">Make update request (update product)</button>
+    <hr>
+    <p>Delete;</p>
+    <button v-on:click="deleteProduct()">Make delete request (delete product)</button>
 
       <div >
         <ol>
           <li v-for="product in products">
             {{ product.name }}
+            {{ product.price }}
           </li>
         </ol>
       </div>
