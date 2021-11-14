@@ -3,9 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/about">About</router-link>
+      <router-link to="/posts">All Posts</router-link>
       |
-      <router-link to="/test">Test</router-link>
+      <router-link to="/posts/new">Create Post</router-link>
       |
       <router-link to="/secondtest">SecondTest</router-link>
       |

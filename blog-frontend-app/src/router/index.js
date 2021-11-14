@@ -6,6 +6,9 @@ import Secondtest from "../views/Secondtest.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import PostsIndex from "../views/PostsIndex.vue";
+import PostsNew from "../views/PostsNew.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -13,6 +16,16 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/posts",
+    name: "PostsIndex",
+    component: PostsIndex,
+  },
+  {
+    path: "/posts/new",
+    name: "PostsNew",
+    component: PostsNew,
   },
   {
     path: "/test",
