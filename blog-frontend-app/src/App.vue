@@ -5,7 +5,7 @@
       |
       <router-link to="/posts">All Posts</router-link>
       |
-      <router-link to="/posts/new">Create Post</router-link>
+      <router-link to="/posts/new">New Post</router-link>
       |
       <router-link to="/secondtest">SecondTest</router-link>
       |
