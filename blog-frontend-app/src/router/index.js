@@ -25,14 +25,14 @@ const routes = [
     component: PostsIndex,
   },
   {
-    path: "/posts/:id",
-    name: "PostsShow",
-    component: PostsShow,
-  },
-  {
     path: "/posts/new",
     name: "PostsNew",
     component: PostsNew,
+  },
+  {
+    path: "/posts/:id",
+    name: "PostsShow",
+    component: PostsShow,
   },
   {
     path: "/posts/:id/edit",
