@@ -1,13 +1,10 @@
 <template>
-  <div class="PostsEdit">
+  <div class="signup">
     <form v-on:submit.prevent="submit()">
+      <h1>Edit Blog</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
       </ul>
-      <!-- <div>
-        <label>User Id:</label>
-        <input type="text" v-model="editPostParams.user_id" />
-      </div> -->
       <div>
         <label>Title:</label>
         <input type="text" v-model="editPostParams.title" />
@@ -34,9 +31,6 @@ export default {
       errors: [],
     };
   },
-  create: function () {
-    this.getPost();
-  },
   methods: {
     submit: function () {
       axios
@@ -49,12 +43,16 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    getPost: function () {
-      axios.get("posts/" + this.$route.params.id).then((response) => {
+    showFunction: function () {
+      console.log("in the show function");
+      axios.get(`/posts/${this.$route.params.id}`).then((response) => {
         console.log(response.data);
-        this.post = response.data;
+        this.editPostParams = response.data;
       });
     },
+  },
+  created: function () {
+    this.showFunction();
   },
 };
 </script>
