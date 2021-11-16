@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <p>{{ errors }}</p>
     <p>
       <b>First Name:</b>
       <input type="text" v-model="newContact.first_name" />
@@ -84,6 +85,7 @@ export default {
       contacts: [],
       newContact: {},
       currentContact: {},
+      errors: [],
     };
   },
   created: function () {
@@ -99,7 +101,6 @@ export default {
     },
     createContact: function () {
       console.log("Create Contact!");
-      console.log(this.newContact);
       axios
         .post("http://localhost:3000/contacts.json", {
           first_name: this.newContact.first_name,
@@ -110,6 +111,11 @@ export default {
         })
         .then((response) => {
           console.log(response.data);
+          console.log(this.newContact);
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+          this.errors = error.response.data.errors;
         });
     },
     showContact: function (theContact) {
