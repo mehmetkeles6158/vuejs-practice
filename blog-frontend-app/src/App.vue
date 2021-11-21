@@ -35,10 +35,10 @@
                   Auth
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="/login">Sign in</a></li>
-                  <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+                  <li v-if="!isLoggedIn()"><a class="dropdown-item" href="/login">Log in</a></li>
+                  <li v-if="isLoggedIn()"><a class="dropdown-item" href="/logout">Log out</a></li>
                   <li><hr class="dropdown-divider" /></li>
-                  <li><a class="dropdown-item" href="/signup">Sing up</a></li>
+                  <li v-if="!isLoggedIn()"><a class="dropdown-item" href="/signup">Sign up</a></li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -63,3 +63,17 @@ body {
   background-image: url("https://s3.amazonaws.com/noupe/2009/10/ava7.jpg");
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>

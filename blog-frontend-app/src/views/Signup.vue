@@ -12,6 +12,7 @@
           {{ 20 - newUserParams.name.length }} characters remaining
         </small>
         <small class="text-danger" v-if="newUserParams.name.length > 20">Name is too long</small>
+        <small class="text-danger" v-if="newUserParams.name.length < 6">(at least 6 characters)</small>
       </div>
       <div>
         <label>Email:</label>
