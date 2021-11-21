@@ -17,8 +17,11 @@
       <b>image_url:</b>
       {{ post.image }}
     </p>
-    <router-link v-bind:to="`/posts/${post.id}/edit`">Edit Post</router-link>
-    <p><button v-on:click="destroyPost()">Delete Post</button></p>
+    current user Id: {{ $parent.getUserId() }}; Person who made the post: {{ post.user_id }}
+    <div v-if="post.user_id == $parent.getUserId">
+      <router-link v-bind:to="`/posts/${post.id}/edit`">Edit Post</router-link>
+      <p><button v-on:click="destroyPost()">Delete Post</button></p>
+    </div>
   </div>
 </template>
 
