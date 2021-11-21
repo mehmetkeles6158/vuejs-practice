@@ -8,6 +8,10 @@
       <div>
         <label>Name:</label>
         <input type="text" v-model="newUserParams.name" />
+        <small v-if="newUserParams.name.length > 0 && newUserParams.name.length <= 20">
+          {{ 20 - newUserParams.name.length }} characters remaining
+        </small>
+        <small class="text-danger" v-if="newUserParams.name.length > 20">Name is too long</small>
       </div>
       <div>
         <label>Email:</label>
@@ -20,6 +24,7 @@
       <div>
         <label>Password confirmation:</label>
         <input type="password" v-model="newUserParams.password_confirmation" />
+        <small v-if="newUserParams.password !== newUserParams.password_confirmation">Passwords must match</small>
       </div>
       <input type="submit" value="Submit" />
     </form>
@@ -32,7 +37,12 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      newUserParams: {},
+      newUserParams: {
+        name: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+      },
       errors: [],
     };
   },
