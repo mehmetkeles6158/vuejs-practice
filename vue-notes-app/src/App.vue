@@ -8,11 +8,14 @@
 <script>
 import Toolbar from "./components/Toolbar.vue";
 import NoteContainer from "./components/NoteContainer.vue";
+import Vue from "vue";
+import Autocomplete from "vuejs-auto-complete";
 
 export default {
   components: {
     Toolbar,
     NoteContainer,
+    Autocomplete,
   },
   data: function () {
     return {
