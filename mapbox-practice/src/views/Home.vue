@@ -64,6 +64,10 @@ export default {
         .setLngLat(monument)
         .setPopup(popup) // sets a popup on this marker
         .addTo(map);
+      const marker1 = new mapboxgl.Marker().setLngLat([38.8893, 77.0502]).addTo(map);
+
+      // Create a default Marker, colored black, rotated 45 degrees.
+      const marker2 = new mapboxgl.Marker({ color: "black", rotation: 45 }).setLngLat([38.8875, 77.0364]).addTo(map);
     },
   },
 };
