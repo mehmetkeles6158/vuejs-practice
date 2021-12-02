@@ -24,6 +24,13 @@ export default {
   },
   created: function () {
     this.postsIndex();
+    var code = this.$route.query.code;
+    if (code) {
+      axios.get("/auth/github/callback?code=" + code).then((response) => {
+        localStorage.setItem("github_access_token", response.data.access_token);
+        this.$router.push("/about");
+      });
+    }
   },
   methods: {
     postsIndex: function () {
